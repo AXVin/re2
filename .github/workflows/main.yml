@@ -27,7 +27,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install Abseil
-        run: git clone https://github.com/abseil/abseil-cpp.git && ln -s abseil-cpp/absl ./absl
+        run: git clone https://github.com/abseil/abseil-cpp.git && ln -s abseil-cpp/absl ./python/absl
         shell: bash
       - name: Build wheels
         uses: pypa/cibuildwheel@v1.12.0
