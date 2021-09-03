@@ -25,11 +25,11 @@ jobs:
         os: [windows-2019]
 
     steps:
-
       - uses: actions/checkout@v2
-
+      - name: Install Abseil
+        run: git clone https://github.com/abseil/abseil-cpp.git && ln -s abseil-cpp/absl ./absl
+        shell: bash
       - name: Build wheels
-
         uses: pypa/cibuildwheel@v1.12.0
         with:
           package-dir: ./python
@@ -39,7 +39,7 @@ jobs:
           CIBW_PLATFORM: windows
 
           CIBW_BUILD: cp39-win32
-          CIBW_BEFORE_BUILD: git clone https://github.com/abseil/abseil-cpp.git && ln -s abseil-cpp/absl ./absl && pip install pybind11
+          CIBW_BEFORE_BUILD: pip install pybind11
 
       - uses: actions/upload-artifact@v2
 
