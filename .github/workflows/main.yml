@@ -29,8 +29,11 @@ jobs:
       - name: Clone Abseil
         run: git clone https://github.com/abseil/abseil-cpp.git
         shell: bash
+      - name: LS
+        run: ls
+        shell: bash
       - name: Link Abseil
-        run: ln -s ./abseil-cpp/absl ./python/
+        run: ln -s ./abseil-cpp/absl .re2/python/absl
         shell: bash
       - name: Build wheels
         uses: pypa/cibuildwheel@v1.12.0
