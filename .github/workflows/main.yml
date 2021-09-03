@@ -30,7 +30,7 @@ jobs:
         run: git clone https://github.com/abseil/abseil-cpp.git
         shell: bash
       - name: Link Abseil
-        run: ln -s ./abseil-cpp/absl ./python/absl
+        run: ln -s ./abseil-cpp/absl ./python/
         shell: bash
       - name: Build wheels
         uses: pypa/cibuildwheel@v1.12.0
