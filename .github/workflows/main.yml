@@ -33,7 +33,10 @@ jobs:
         run: ls
         shell: bash
       - name: Link Abseil
-        run: cd python && ln -s ../abseil-cpp/absl ./absl && ln -s ../re2 ./re2
+        run: cd python && ln -s ../abseil-cpp/absl ./absl
+        shell: bash
+      - name: Install re2
+        run: cd re2 && make && make install
         shell: bash
       - name: Build wheels
         uses: pypa/cibuildwheel@v1.12.0
